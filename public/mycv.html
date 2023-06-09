@@ -15,33 +15,10 @@
 
     <nav id="scrollspy" class="navbar page-navbar navbar-dark navbar-expand-md fixed-top" data-spy="affix" data-offset-top="20">
         <div class="container">
-            <a class="navbar-brand" href="#"><strong class="text-primary">WRITE</strong><span class="text-light">NOW</span></a>
+            <a class="navbar-brand" href="index.html"><strong class="text-primary">WRITE</strong><span class="text-light">NOW</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#features">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#pricing">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#review">Reviews</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-primary text-dark shadow-none ml-md-4" href="components.html">Components</a>
-                    </li>
-                </ul>
-            </div>
         </div>
     </nav>
     <section class="section" id="contact">
@@ -54,30 +31,29 @@
                     <div class="col-12">
                         <p class="mb-5 pb-2"><h3 style="text-align: left">개인 정보</h3></p>
                         <div class="form-group pb-1">
-                            <input type="text" class="form-control" required placeholder="이름">            
+                            <input type="text" id="name" class="form-control" required placeholder="이름">            
                         </div>
                         <div class="form-group pb-1">
-                            <input type="text" class="form-control" required placeholder="학교">            
+                            <input type="text" id="university" class="form-control" required placeholder="학교">            
                         </div>
                         <div class="form-group pb-1">
-                            <input type="text" class="form-control" required placeholder="전공">            
+                            <input type="text" id="major" class="form-control" required placeholder="전공">            
                         </div>
                         <p class="mb-5 pb-2"><h3 style="text-align: left">주요 이력</h3></p>
                         <div class="form-group pb-1">
-                            <textarea name="" id="" cols="" rows="7" class="form-control" required placeholder="Message"></textarea>
+                            <textarea name="" id="main_subject" cols="" rows="7" class="form-control" required placeholder="Message"></textarea>
                         </div>
                         <p class="mb-5 pb-2"><h3 style="text-align: left">기타 이력</h3></p>
                         <div class="form-group pb-1">
-                            <textarea name="" id="" cols="" rows="7" class="form-control" required placeholder="Message"></textarea>
+                            <textarea name="" id="sub_subject" cols="" rows="7" class="form-control" required placeholder="Message"></textarea>
                         </div>
                         <p class="mb-5 pb-2"><h3 style="text-align: left">추가 내용</h3></p>
                         <div class="form-group pb-1">
-                            <textarea name="" id="" cols="" rows="7" class="form-control" required placeholder="Message"></textarea>
+                            <textarea name="" id="add_subject" cols="" rows="7" class="form-control" required placeholder="Message"></textarea>
                         </div>
                     </div>
                     </div>
-                    <input type="submit" class="btn btn-primary btn-block" value="저장하기">
-                    <input type="submit" class="btn btn-primary btn-block" value="자소서 작성의뢰하기">  
+                    <input type="button" onclick="save()" class="btn btn-primary btn-block" value="자소서 작성의뢰하기">
                 </div>
             </form>
             
@@ -106,6 +82,17 @@
 
     <!-- writenow js -->
     <script src="assets/js/writenow.js"></script>
+    <script>
+        function save(){
+            sessionStorage.setItem('name', document.getElementById("name").value)
+            sessionStorage.setItem('university', document.getElementById("university").value)
+            sessionStorage.setItem('major', document.getElementById("major").value)
+            sessionStorage.setItem('main_subject', document.getElementById("main_subject").value)
+            sessionStorage.setItem('sub_subject', document.getElementById("sub_subject").value)
+            sessionStorage.setItem('add_subject', document.getElementById("add_subject").value)
+            location.href='coverletter.html'
+        }
+    </script>
 
 </body>
 </html>

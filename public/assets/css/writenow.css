@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  margin-top: 0;
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -3341,7 +3341,7 @@ fieldset:disabled a.btn {
 }
 
 .btn-block + .btn-block {
-  margin-top: 0.5rem;
+  margin-top: 3px;
 }
 
 input[type="submit"].btn-block,
@@ -10780,6 +10780,7 @@ button.bg-dark:focus {
 
 .text-primary {
   color: #ff9a44 !important;
+  top: 5px;
 }
 
 a.text-primary:hover, a.text-primary:focus {
@@ -11454,10 +11455,11 @@ textarea {
   font-size: 20px;
   font-weight: 400;
   padding: 15px 0;
+  margin-top:15px;
 }
 
 .header .header-form .body {
-  padding: 25px 20px;
+  padding: 20px 20px;
 }
 
 .header .header-form .footer .btn {

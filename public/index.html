@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="write your assgin ment with writenow.">
+    <meta name="author" content="zinhyeok">
+    <title>WRITENOW | gpt기반 자소서 및 이력 관리 서비스</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + Rubic main styles -->
+	<link rel="stylesheet" href="assets/css/writenow.css">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    <nav id="scrollspy" class="navbar page-navbar navbar-dark navbar-expand-md fixed-top" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><strong class="text-primary">WRITE</strong><span class="text-light">NOW</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    <header class="header d-flex justify-content-center">
+        <div class="container">
+            <div class="row h-100 align-items-center">
+                <div class="col-md-7">
+                    <div class="header-content">
+                        <h3 class="header-title"><strong class="text-primary">WRITE</strong><span style="color:white;">NOW</span></h3>
+                        <h4>지금 바로 당신의 이력서를 업로드하고 </h4>
+                        <h4 class="header-subtitle"> 자기소개서를 받아보세요 </h4>
+                        <p>1분안에 받아보는 자소서, Write now</p>
+                    </div>
+                </div>
+                <div class="col-md-5 d-none d-md-block">
+                    <form id="pre_login" class="header-form">
+                        <div class="head">지금 <span class="text-primary">바로 시작</span>해보기</div>
+                        <div class="body">
+                            <!-- <div class="form-group">
+                                <input id="email" type="email" class="form-control" placeholder="이메일">
+                            </div>
+                            <div class="form-group">
+                                <input id="password" type="password" class="form-control" placeholder="비밀번호">
+                            </div> -->
+                            <div class="footer">
+                                <input type="button" class="btn btn-primary btn-block" onclick="location.href='mycv.html';" value="START NOW">
+                                <!-- <button class="btn btn-primary btn-block" onclick="login()">로그인</button>
+                                <button class="btn btn-primary btn-block" onclick = "signup()">회원가입</button> -->
+                            </div>
+                        </div>
+
+                    </form>
+                    <!-- <div id="next_login">
+                        <div class="head">어서오세요 <span class="text-primary">Write</span>now!</div>
+                        <div class="footer">
+                            <button class="btn btn-primary btn-block">로그아웃</button>
+                        </div>
+                      </div>  -->
+                </div>
+            </div>  
+        </div>
+    </header>
+    <section class="section" id="pricing">
+        <div class="container text-center">
+            <h6 class="display-4 has-line">PRICING OPTIONS</h6>
+            <p class="mb-5 pb-4">당신에게 맞는 가격 옵션을 선택해주세요.</p>
+            <div class="row pt-5">
+                <div class="col-lg-4">
+                    <a href="javascript:void(0)" class="pricing-card">
+                        <div class="head">Basic</div>
+                        <div class="body">
+                            <h1>무료</h1>
+                            <p>Free for Life</p>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">AI기반 자기소개서 초안 작성 무제한</li>
+                            <li class="list-group-item">자기소개서의 개략적인 틀 제공</li>
+                        </ul>
+                    </a>
+                </div>
+                <div class="col-lg-4">
+                    <a href="javascript:void(0)" class="pricing-card popular">
+                        <div class="head">Professional</div>
+                        <div class="body">
+                            <h1>9900원</h1>
+                            <p>Monthly Payment</p>
+                        </div>
+                        <div class="popular-item">OUR MOST POPULAR</div>
+                        <ul class="list-group">
+                            <li class="list-group-item">고도화된 AI기반 자기소개서 작성 무제한</li>
+                            <li class="list-group-item">구체적인 사용자 정보 입력 가능</li>
+                            <li class="list-group-item">AI 기반 자기소개서 첨삭 무제한</li>
+                            <li class="list-group-item">작성된 자기소개서와 채용팀 연결</li>
+                        </ul>
+                    </a>
+                </div>
+                <div class="col-lg-4">
+                    <a href="javascript:void(0)" class="pricing-card">
+                        <div class="head">Premium</div>
+                        <div class="body">
+                            <h1>18900원</h1>
+                            <p>Monthly Payment</p>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">분야별 전문가 직무 미팅</li>
+                            <li class="list-group-item">분야별 전문가 자기소개서 첨삭</li>
+                            <li class="list-group-item">고도화된 AI기반 자기소개서 작성 무제한</li>
+                            <li class="list-group-item">구체적인 사용자 정보 입력 가능</li>
+                            <li class="list-group-item">AI 기반 자기소개서 첨삭 무제한</li>
+                            <li class="list-group-item">작성된 자기소개서와 채용팀 연결</li>
+                        </ul>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer py-4 bg-dark text-light"> 
+        <div class="container text-center">
+            <p class="mb-4 small">Copyright <script>document.write(new Date().getFullYear())</script> &copy; <a href="http://www.devcrud.com">Writenow</a></p>
+            <div class="social-links">
+                <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-google"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-pinterest-alt"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-instagram"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-rss"></i></a>
+            </div>
+        </div>
+    </footer>
+	
+	<!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+    <!-- bootstrap 3 affix -->
+	<script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- writenow js -->
+    
+    <script src="assets/js/writenow.js"></script>
+    <!-- <script>
+        // $(document).ready(function () {
+        //     $('#next_login').hide();
+        // });        
+    </script> -->
+    <!-- <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
+        import { 
+                getAuth,// authentication 설정
+                signInWithPopup, //google 로그인을 팝업창에 띄우기 위해
+                GoogleAuthProvider, //google login 기능
+                signInWithEmailAndPassword,// email 로그인
+                createUserWithEmailAndPassword, //email 회원가입
+                } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js';
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "",
+          authDomain: "",
+          projectId: "",
+          storageBucket: "",
+          messagingSenderId: "",
+          appId: "",
+          measurementId: ""
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const analytics = getAnalytics(app);
+        export const signupEmail = async(email, password) => {
+            return await createUserWithEmailAndPassword(auth, email, password);
+        };
+        export const loginEmail = async(email, password) => {
+            return await signInWithEmailAndPassword(auth, email, password);
+        };
+        
+        function signup(){
+            const email = document.getElementById('email').value
+            const password = document.getElementById('password').value
+            try{
+                signupEmail(email, password).then((result) => {
+                const user = result.user
+                signupSuccess()
+            })              
+            } catch({ code, message }){
+                alert(errorMessage[code]);
+            }
+  
+        }
+            
+        function login(){
+            const email = document.getElementById('email').value
+            const password = document.getElementById('password').value
+            loginEmail(email, password).then((result) => {
+                const user = result.user
+                loginSuccess()
+            })           
+        }
+        
+        function loginSuccess(){
+            alert("로그인 성공")
+        }
+        
+        function signupSuccess(){
+            alert("회원가입 성공")
+        }
+        
+      </script> -->
+</body>
+</html>

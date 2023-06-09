@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="write your assgin ment with writenow.">
+    <meta name="author" content="zinhyeok">
+    <title>WRITENOW | gpt기반 자소서 및 이력 관리 서비스</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + Rubic main styles -->
+	<link rel="stylesheet" href="assets/css/writenow.css">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <nav id="scrollspy" class="navbar page-navbar navbar-dark navbar-expand-md fixed-top" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><strong class="text-primary">WRITE</strong><span class="text-light">NOW</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    <section class="section" id="contact">
+        <div class="container text-center">
+            <h6 class="display-4 has-line">자소서 작성 요청하기</h6>
+            <p class="mb-5 pb-2">작성해주신 이력을 바탕으로 원하시는 문항에 해당하는 자기소개서를 작성합니다</p>
+
+            <form>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="form-group pb-1">
+                            <input type="text" id="company" class="form-control" required placeholder="지원 회사">            
+                        </div>
+                        <div class="form-group pb-1">
+                            <input type="text" id="position" class="form-control" required placeholder="지원 직무">          
+                        </div>
+                        <div class="form-group ">
+                            <input type="text" id="keywords" class="form-control" required placeholder="자소서 문항">
+                        </div>
+                        <div class="form-group ">
+                            <input type="number" id="word_limit" class="form-control" required placeholder="글자수 제한(자 기준, 공백포함)">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <textarea name="" id="extra" cols="" rows="7" class="form-control" required placeholder="추가 요청 사항"></textarea>
+                    </div>
+                </div>
+                <!-- <input type="button" onclick='LoadingWithMask()' class="btn btn-primary btn-block" value="로딩"> -->
+                <input type="button" onclick="chatGPT()" class="btn btn-primary btn-block" value="자소서 작성 요청">
+            </form>
+        </div>
+    </section>
+    
+    <footer class="footer py-4 bg-dark text-light"> 
+        <div class="container text-center">
+            <p class="mb-4 small">Copyright <script>document.write(new Date().getFullYear())</script> &copy; <a href="http://www.devcrud.com">DevCRUD</a></p>
+            <div class="social-links">
+                <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-google"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-pinterest-alt"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-instagram"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-rss"></i></a>
+            </div>
+        </div>
+    </footer>
+	
+	<!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+    <!-- bootstrap 3 affix -->
+	<script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- writenow js -->
+    <script src="assets/js/writenow.js"></script>
+    <script>
+        function LoadingWithMask(){
+        //화면의 높이와 너비를 구합니다.
+        var maskHeight = $(document).height();
+        var maskWidth  = window.document.body.clientWidth;
+        
+        //화면에 출력할 마스크를 설정해줍니다.
+        var mask       = "<div id='mask' style='position:absolute; z-index:9000; background-color:#000000; display:none; left:0; top:0;'></div>";
+        var loadingImg = '';
+        
+        loadingImg += "<div id='loadingImg'>";
+        loadingImg += " <img src='https://studentrights.sen.go.kr/images/common/loading.gif' style='position: absolute; top: calc(50% - (200px/2)); left: calc(50% - (200px/2)); display: block; margin: 0px auto;'/>";
+        loadingImg += "</div>";
+    
+        //화면에 레이어 추가
+        $('body')
+            .append(mask)
+            .append(loadingImg)
+    
+        //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채웁니다.
+        $('#mask').css({
+                'width' : maskWidth,
+                'height': maskHeight,
+                'opacity' : '0.3'
+        }); 
+    
+        //마스크 표시
+        $('#mask').show();
+    
+        //로딩중 이미지 표시
+        $('#loadingImg').show();
+        }
+        
+        function closeLoadingWithMask() {
+            $('#mask, #loadingImg').hide();
+            $('#mask, #loadingImg').remove();
+        }
+        
+        function chatGPT() {
+          const api_key = ""  // <- API KEY 입력
+          const name = sessionStorage.getItem('name');
+          const university = sessionStorage.getItem('university');
+          const major = sessionStorage.getItem('major');
+          const main_subject = sessionStorage.getItem('main_subject');
+          const sub_subject = sessionStorage.getItem('sub_subject');
+          const add_subject = sessionStorage.getItem('add_subject');
+          const company = document.getElementById('company').value
+          const position = document.getElementById('position').value
+          const keywords = document.getElementById('keywords').value
+          const word_limit = document.getElementById('word_limit').value
+          const extra = document.getElementById('extra').value
+          LoadingWithMask()
+
+          const messages = [
+            { role: 'system', content: 'You are a helpful assistant.' },
+            { role: 'user', content: "나는 지금 자기소개서를 작성하려고 하는데, 내가 지원하는 회사는 " + 
+            company+ "이고, 내가 지원하는 직무는 " + 
+            position + "이야. 나는 지금 자소서 문항 중 " + 
+            keywords + "라는 문항에 대해 작성해야해. 이를 작성하기 위한 나의 이력을 설명해줄게. 내 이름은 " +
+            name + "이고, 나는 " +
+            university + "에서 " + 
+            major + "을 전공했어. 그리고 나의 주요 이력은" + 
+            main_subject + "이고, 기타 이력은" + 
+            sub_subject + "이며, 추가 내용은" + 
+            add_subject + "이야. 마지막으로" + 
+            extra + "에 대한 내용도 포함되었으면 좋겠어. 참고로 글자수 제한은 " + 
+            word_limit + "자 이므로 글자수 제한 이내로 자기소개서를 완성해줘." },
+          ]
+    
+          const data = {
+            model: 'gpt-3.5-turbo',
+            temperature: 0.5,
+            n: 1,
+            messages: messages,
+          }
+    
+          $.ajax({
+            url: "https://api.openai.com/v1/chat/completions",
+            method: 'POST',
+            headers: {
+              Authorization: "Bearer " + api_key,
+              'Content-Type': 'application/json',
+            },
+            data: JSON.stringify(data),
+          }).then(function (response) {
+            closeLoadingWithMask()
+            // console.log(response)
+            sessionStorage.setItem('result', response.choices[0].message.content)
+            // let result = document.getElementById('result')
+            // let pre = document.createElement('pre')
+
+            // pre.innerHTML = "\n\n" + response.choices[0].message.content
+            // result.appendChild(pre)
+            location.href='coverletterResult.html'
+          });
+        }
+      </script>
+
+</body>
+</html>
